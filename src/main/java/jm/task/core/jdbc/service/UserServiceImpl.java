@@ -7,10 +7,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoJDBCImpl implements UserService{
+public class UserServiceImpl implements UserService{
     private final Connection connection = Util.connection();
 
-    public UserDaoJDBCImpl() throws SQLException, ClassNotFoundException {
+    public UserServiceImpl() throws SQLException, ClassNotFoundException {
 
     }
 

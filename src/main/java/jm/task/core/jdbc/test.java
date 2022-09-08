@@ -1,2 +1,4 @@
-package jm.task.core.jdbc;public class test {
+package jm.task.core.jdbc;
+
+public class test {
 }
