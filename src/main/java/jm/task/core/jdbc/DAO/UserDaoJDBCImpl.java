@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao{
-    private final Connection connection = Util.connection();
-   private Statement statement = connection.createStatement();
+   private final Connection connection = Util.connection();
+   private final Statement statement = connection.createStatement();
 
     public UserDaoJDBCImpl() throws SQLException, ClassNotFoundException {
 
