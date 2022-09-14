@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService{
-   static UserDaoJDBCImpl userDaoJDBC;
+   private static UserDaoJDBCImpl userDaoJDBC;
 
     static {
         try {
