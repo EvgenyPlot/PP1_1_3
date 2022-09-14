@@ -9,19 +9,21 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao{
     private final Connection connection = Util.connection();
+   private Statement statement = connection.createStatement();
 
     public UserDaoJDBCImpl() throws SQLException, ClassNotFoundException {
 
     }
 
     public void createUsersTable() {
-        try (Statement statement = connection.createStatement()) {
+        try  {
             statement.executeUpdate("create table if not exists test.users (id int not null auto_increment," +
                     " name VARCHAR(255) not null,  lastName VARCHAR(255) not null, age int not null, " +
                     "PRIMARY KEY (`id`))");
             System.out.println("Таблица создана!");
 
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("Таблица создана ранее!");
         }
 
@@ -30,7 +32,7 @@ public class UserDaoJDBCImpl implements UserDao{
     }
 
     public void dropUsersTable() {
-        try (Statement statement = connection.createStatement()) {
+        try  {
             statement.executeUpdate("Drop table if exists test.users");
             System.out.println("Таблица удалена");
         } catch (SQLException e) {
@@ -55,7 +57,7 @@ public class UserDaoJDBCImpl implements UserDao{
     }
 
     public void removeUserById(long id) {
-        try (Statement statement = connection.createStatement()) {
+        try  {
             String sql = "DELETE FROM test.users where id";
             statement.executeUpdate(sql);
             System.out.println("User удален");
@@ -70,7 +72,7 @@ public class UserDaoJDBCImpl implements UserDao{
 
         String sql = "SELECT id, name, lastName, age from test.users";
 
-        try (Statement statement = connection.createStatement()) {
+        try  {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 User user = new User();
@@ -92,7 +94,7 @@ public class UserDaoJDBCImpl implements UserDao{
 
     public void cleanUsersTable () {
         String sql = "DELETE FROM test.users";
-        try (Statement statement = connection.createStatement()) {
+        try  {
             statement.executeUpdate(sql);
             System.out.println("Таблица очищена");
         } catch (SQLException e) {
