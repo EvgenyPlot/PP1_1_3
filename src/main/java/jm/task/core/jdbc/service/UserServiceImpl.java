@@ -23,9 +23,9 @@ public class UserServiceImpl implements UserService{
 
 
 
-    public UserServiceImpl() throws SQLException, ClassNotFoundException {
+    /*public UserServiceImpl() throws SQLException, ClassNotFoundException {
 
-    }
+    }*/
 
 
     public void createUsersTable() {
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public List<User> getAllUsers () {
-              
+
         return userDaoJDBC.getAllUsers();
 
     }
