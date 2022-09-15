@@ -1,11 +1,24 @@
+package jm.task.core.jdbc;
 import jm.task.core.jdbc.DAO.UserDao;
 import jm.task.core.jdbc.DAO.UserDaoJDBCImpl;
+import jm.task.core.jdbc.util.Util;
 
 import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao userDao = new UserDaoJDBCImpl();
+    public static void main(String[] args)  {
+
+
+
+        UserDao userDao = null;
+        try {
+            userDao = new UserDaoJDBCImpl();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
 
         userDao.createUsersTable();
 

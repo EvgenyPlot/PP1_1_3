@@ -1,5 +1,6 @@
 package jm.task.core.jdbc.service;
 
+import jm.task.core.jdbc.DAO.UserDao;
 import jm.task.core.jdbc.DAO.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
@@ -9,17 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService{
-   private static UserDaoJDBCImpl userDaoJDBC;
+   private UserDao userDaoJDBC = new UserDaoJDBCImpl();
 
-    static {
-        try {
-            userDaoJDBC = new UserDaoJDBCImpl();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    public UserServiceImpl() throws SQLException, ClassNotFoundException {
     }
+
+
 
 
 
