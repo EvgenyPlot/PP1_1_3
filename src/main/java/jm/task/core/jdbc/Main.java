@@ -10,7 +10,7 @@ public class Main {
 
 
 
-        UserDao userDao = null;
+        UserDao userDao = new UserDaoJDBCImpl();
 
 
 

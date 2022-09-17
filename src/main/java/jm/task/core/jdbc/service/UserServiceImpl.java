@@ -26,29 +26,43 @@ public class UserServiceImpl implements UserService{
 
     public void createUsersTable() {
 
-
-        userDaoJDBC.createUsersTable();
-
-
-
+        try (Connection connection = Util.connection()) {
+            userDaoJDBC.createUsersTable();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     public void dropUsersTable() {
 
-        userDaoJDBC.dropUsersTable();
+        try (Connection connection = Util.connection()) {
+            userDaoJDBC.dropUsersTable();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
 
     }
 
     public void saveUser(String name, String lastName, byte age) {
-
-     userDaoJDBC.saveUser(name, lastName, age);
+        try (Connection connection = Util.connection()) {
+            userDaoJDBC.saveUser(name, lastName, age);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     public void removeUserById(long id) {
+        try (Connection connection = Util.connection()) {
+            userDaoJDBC.removeUserById(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
-        userDaoJDBC.removeUserById(id);
+
 
     }
 
@@ -59,8 +73,13 @@ public class UserServiceImpl implements UserService{
     }
 
     public void cleanUsersTable () {
+        try (Connection connection = Util.connection()) {
+            userDaoJDBC.cleanUsersTable();
 
-        userDaoJDBC.cleanUsersTable();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
