@@ -12,7 +12,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
    private UserDao userDaoJDBC = new UserDaoJDBCImpl();
 
-    public UserServiceImpl() throws SQLException, ClassNotFoundException {
+    public UserServiceImpl()  {
     }
 
 
@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService{
 
 
         userDaoJDBC.createUsersTable();
+
 
 
 

@@ -11,7 +11,7 @@ public class UserDaoJDBCImpl implements UserDao{
 
 
 
-    public UserDaoJDBCImpl() throws SQLException, ClassNotFoundException {
+    public UserDaoJDBCImpl()  {
 
     }
 

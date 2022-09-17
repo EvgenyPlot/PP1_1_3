@@ -11,13 +11,7 @@ public class Main {
 
 
         UserDao userDao = null;
-        try {
-            userDao = new UserDaoJDBCImpl();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+
 
 
         userDao.createUsersTable();
