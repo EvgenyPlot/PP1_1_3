@@ -16,54 +16,27 @@ public class UserServiceImpl implements UserService{
     }
 
 
-
-
-
-    /*public UserServiceImpl() throws SQLException, ClassNotFoundException {
-
-    }*/
-
-
     public void createUsersTable() {
-
-        try (Connection connection = Util.connection()) {
-            userDaoJDBC.createUsersTable();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        userDaoJDBC.createUsersTable();
 
     }
 
     public void dropUsersTable() {
-
-        try (Connection connection = Util.connection()) {
-            userDaoJDBC.dropUsersTable();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
+        userDaoJDBC.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        try (Connection connection = Util.connection()) {
-            userDaoJDBC.saveUser(name, lastName, age);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
+        userDaoJDBC.saveUser(name, lastName, age);
+
+
+
 
     }
 
     public void removeUserById(long id) {
-        try (Connection connection = Util.connection()) {
-            userDaoJDBC.removeUserById(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-
-
+        userDaoJDBC.removeUserById(id);
     }
 
     public List<User> getAllUsers () {
@@ -73,14 +46,6 @@ public class UserServiceImpl implements UserService{
     }
 
     public void cleanUsersTable () {
-        try (Connection connection = Util.connection()) {
-            userDaoJDBC.cleanUsersTable();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-
+        userDaoJDBC.cleanUsersTable();
     }
-
 }
