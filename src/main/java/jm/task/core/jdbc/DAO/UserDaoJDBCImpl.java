@@ -16,20 +16,16 @@ public class UserDaoJDBCImpl implements UserDao{
     }
 
     public void createUsersTable() {
-
-
-        try (Connection connection = Util.connection(); Statement statement = connection.createStatement())  {
+        try (Connection connection = Util.connection(); Statement statement = connection.createStatement()) {
             statement.executeUpdate("create table if not exists test.users (id int not null auto_increment," +
                     " name VARCHAR(255) not null,  lastName VARCHAR(255) not null, age int not null, " +
                     "PRIMARY KEY (`id`))");
             System.out.println("Таблица создана!");
 
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Таблица создана ранее!");
         }
-
 
     }
 
